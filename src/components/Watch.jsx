@@ -7,6 +7,14 @@ import { AiOutlineDislike, AiOutlineLike } from "react-icons/ai";
 import { PiShareFatFill, PiShareFatLight } from "react-icons/pi";
 import { GoDownload } from "react-icons/go";
 import { BsThreeDotsVertical } from "react-icons/bs";
+import { IoSend } from "react-icons/io5";
+import LiveChat from "./LiveChat";
+import { useDispatch } from "react-redux";
+import { setMessage } from "../utils/chatSlice";
+
+
+
+
 
 
 
@@ -14,6 +22,8 @@ const Watch = () => {
   const [searchParams] = useSearchParams();
   const videoId = searchParams.get("v");
   const [singleVideo, setSingleVideo] = useState(null);
+  const [input, setInput] = useState("");
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const getSingleVideo = async () => {
@@ -31,8 +41,19 @@ const Watch = () => {
   }, []);
   //   console.log(singleVideo)
 
+
+  const sendMessage = ()=>{
+    // alert(input)
+    dispatch(setMessage({
+      name : "Apoorv",
+      message : input,
+    }));
+    setInput("");
+  }
+
   return (
-    <div className="flex justify-between ml-4 mt-4">
+    <div className="flex ml-4 mt-4 w-[100%]">
+      <div className="flex w-[88%]">
       <div>
       <div className="ml-4">
         <iframe
@@ -89,12 +110,33 @@ const Watch = () => {
       </div>
       </div>
 
-      <div>
-        <div className="flex justify-between items-center ml-3">
+      <div className='w-[100%] border border-gray-300 ml-8 rounded-lg h-fit p-4'>
+        <div className="flex justify-between items-center">
           <h2>Top Chart</h2>
           <BsThreeDotsVertical />
 
         </div>
+        <div className='overflow-y-auto h-[28rem] flex flex-col-reverse'>
+          <LiveChat/>
+        </div>
+        {/* <div className="overflow-y-auto h-[28rem]">
+          Chats
+        </div> */}
+
+        <div className="flex items-center justify-between border-t p-2">
+          <div className="flex items-center w-[90%]">
+            <div>
+            <Avatar src='https://m.media-amazon.com/images/I/817-ehv65jL.png' size={35} round={true}/>
+            </div>
+            <input value={input} onChange = {(e)=>setInput(e.target.value)} className="border-b border-gray-300 outline-none ml-2" type="text" placeholder="Send Message...."/>
+            <div>
+            <div className="bg-gray-200 cursor-pointer p-2 rounded-full">
+            <IoSend onClick={sendMessage}/>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
       </div>
     </div>
   );

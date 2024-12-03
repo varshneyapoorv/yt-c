@@ -1,10 +1,10 @@
 import React from 'react'
 
-const buttonItemList = ["All", "Javascript", "React", "Python", "Django", "Node", "Express", "MongoDB", "PostgreSQL", "GraphQL", "Apollo", "Prisma", "TypeORM", "Sequelize", "Docker",]
+const buttonItemList = ["All", "Javascript", "React", "Python", "Django", "Node", "Express", "MongoDB", "PostgreSQL", "GraphQL", "Apollo", "Prisma", "TypeORM", "Sequelize", "Docker", "Next", "Nest", "Java", ]
 
 const ButtonList = () => {
   return (
-    <div className='py-4'>
+    <div className='py-4 '>
       {
         buttonItemList.map((item, index) => {
           return (
