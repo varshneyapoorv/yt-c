@@ -1,19 +1,29 @@
-import React from 'react'
+
 import Avatar from 'react-avatar'
 import { CiSearch, CiVideoOn } from 'react-icons/ci'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { IoIosNotificationsOutline } from 'react-icons/io'
 
+import { useDispatch } from 'react-redux'
+import { toggleSidebar } from '../utils/appSlice'
+
 
 const Navbar = () => {
+
+  const dispatch = useDispatch();
+  const toggleHandler = () => {
+    dispatch(toggleSidebar());
+  }
+
+
   return (
-    <div >
-        <div className='flex fixed top-0 justify-center items-center w-[100%] z-10 bg-white py-3 px-5'>
+    <div className='flex top-0 fixed justify-center items-center w-[100%] z-10 bg-white' >
+        <div className='flex w-[96%]  py-3 justify-between items-center'>
 
         
       <div className='flex items-center'>
 
-      <GiHamburgerMenu size={"24px"}/>
+      <GiHamburgerMenu className='cursor-pointer' onClick={toggleHandler} size={"24px"}/>
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/YouTube_Logo_2017.svg/512px-YouTube_Logo_2017.svg.png" alt="yt_logo" width={"115px"} className='px-4'/>
       </div>
       <div className='flex w-[40%] items-center'> 

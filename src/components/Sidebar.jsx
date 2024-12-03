@@ -2,6 +2,7 @@ import React from 'react'
 import { CiHome } from 'react-icons/ci'
 import { MdSubscriptions } from 'react-icons/md'
 import { SiYoutubeshorts } from 'react-icons/si'
+import { useSelector } from 'react-redux';
 
 
 
@@ -11,7 +12,115 @@ const sideBarItem = [
         title: "Home"
     },
     {
+        icons: <SiYoutubeshorts size={"24px"} />,
+        title: "Short"
+    },
+    {
+        icons: <MdSubscriptions size={"24px"} />,
+        title: "Subscription"
+    },
+    {
         icons: <CiHome size={"24px"} />,
+        title: "Home"
+    },
+    {
+        icons: <SiYoutubeshorts size={"24px"} />,
+        title: "Short"
+    },
+    {
+        icons: <MdSubscriptions size={"24px"} />,
+        title: "Subscription"
+    },
+    {
+        icons: <CiHome size={"24px"} />,
+        title: "Home"
+    },
+    {
+        icons: <SiYoutubeshorts size={"24px"} />,
+        title: "Short"
+    },
+    {
+        icons: <MdSubscriptions size={"24px"} />,
+        title: "Subscription"
+    },
+    {
+        icons: <CiHome size={"24px"} />,
+        title: "Home"
+    },
+    {
+        icons: <SiYoutubeshorts size={"24px"} />,
+        title: "Short"
+    },
+    {
+        icons: <MdSubscriptions size={"24px"} />,
+        title: "Subscription"
+    },
+    {
+        icons: <CiHome size={"24px"} />,
+        title: "Home"
+    },
+    {
+        icons: <SiYoutubeshorts size={"24px"} />,
+        title: "Short"
+    },
+    {
+        icons: <MdSubscriptions size={"24px"} />,
+        title: "Subscription"
+    },
+    {
+        icons: <CiHome size={"24px"} />,
+        title: "Home"
+    },
+    {
+        icons: <SiYoutubeshorts size={"24px"} />,
+        title: "Short"
+    },
+    {
+        icons: <MdSubscriptions size={"24px"} />,
+        title: "Subscription"
+    },
+    {
+        icons: <CiHome size={"24px"} />,
+        title: "Home"
+    },
+    {
+        icons: <SiYoutubeshorts size={"24px"} />,
+        title: "Short"
+    },
+    {
+        icons: <MdSubscriptions size={"24px"} />,
+        title: "Subscription"
+    },
+    {
+        icons: <CiHome size={"24px"} />,
+        title: "Home"
+    },
+    {
+        icons: <SiYoutubeshorts size={"24px"} />,
+        title: "Short"
+    },
+    {
+        icons: <MdSubscriptions size={"24px"} />,
+        title: "Subscription"
+    },
+    {
+        icons: <CiHome size={"24px"} />,
+        title: "Home"
+    },
+    {
+        icons: <SiYoutubeshorts size={"24px"} />,
+        title: "Short"
+    },
+    {
+        icons: <MdSubscriptions size={"24px"} />,
+        title: "Subscription"
+    },
+    {
+        icons: <CiHome size={"24px"} />,
+        title: "Home"
+    },
+    {
+        icons: <SiYoutubeshorts size={"24px"} />,
         title: "Short"
     },
     {
@@ -23,14 +132,21 @@ const sideBarItem = [
 
 
 const Sidebar = () => {
+  const open = useSelector((state) => state.app?.open ?? false);
+
   return (
-    <div className=' ml-4'>
+    <>
+    <div className=' relative'>
+
+    
+    <div className=' left-0 w-auto p-5 bg-white overflow-y-scroll h-[100vh] overflow-x-hidden ml-6'>
         {
             sideBarItem.map((item,index)=>{
                 return (
-                <div key ={index} className='flex  my-3'>
-        {item.icons}
-        <p>{item.title}</p>
+                <div key ={index} className='flex  my-3 ml-[-17px]'>
+         {item.icons}
+         <p className={`ml-5 ${open ? '' : 'hidden'}`}>{item.title}</p>
+
       </div>
                 )
 
@@ -47,6 +163,8 @@ const Sidebar = () => {
         <p>Subscription</p>
       </div> */}
     </div>
+    </div>
+    </>
   )
 }
 

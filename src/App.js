@@ -1,19 +1,16 @@
+import { RouterProvider } from "react-router-dom";
+import "./App.css";
+import Navbar from "./components/Navbar";
+import React from "react";
+import { appRouter } from "./components/appRouter";
 
-import './App.css';
-import Navbar from './components/Navbar';
-import Sidebar from './components/Sidebar';
-
-function App() {
+const App = () => {
   return (
     <>
-    <Navbar/>
-    <div className='flex mt-16'>
-    <Sidebar/>
-    </div>
-
-
+      <Navbar />
+      <RouterProvider router={appRouter} />
     </>
   );
-}
+};
 
 export default App;
