@@ -6,6 +6,8 @@ import Avatar from "react-avatar";
 import { AiOutlineDislike, AiOutlineLike } from "react-icons/ai";
 import { PiShareFatFill, PiShareFatLight } from "react-icons/pi";
 import { GoDownload } from "react-icons/go";
+import { BsThreeDotsVertical } from "react-icons/bs";
+
 
 
 const Watch = () => {
@@ -30,7 +32,8 @@ const Watch = () => {
   //   console.log(singleVideo)
 
   return (
-    <div>
+    <div className="flex justify-between ml-4 mt-4">
+      <div>
       <div className="ml-4">
         <iframe
           width="900"
@@ -84,8 +87,15 @@ const Watch = () => {
           </div>
         </div>
       </div>
+      </div>
 
-      <div></div>
+      <div>
+        <div>
+          <h2>Top Chart</h2>
+          <BsThreeDotsVertical />
+
+        </div>
+      </div>
     </div>
   );
 };
