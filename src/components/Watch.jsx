@@ -90,7 +90,7 @@ const Watch = () => {
       </div>
 
       <div>
-        <div>
+        <div className="flex justify-between items-center ml-3">
           <h2>Top Chart</h2>
           <BsThreeDotsVertical />
 
